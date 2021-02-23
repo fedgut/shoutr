@@ -17,8 +17,7 @@ class SessionsController < Clearance::SessionsController
   end
 
   def user
-    User.where(email: email_or_username)
-        .or(User.where(username: email_or_username)).first || Guest.new
+    User.find_by(email: email_or_username) || User.find_by(username: email_or_username) || Guest.new
   end
 
   def email_or_username
