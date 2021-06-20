@@ -1,0 +1,10 @@
+<%= form_with @shout do |form| %>
+  <%= form.text_field :body, require: true, placeholder: 'shout here'%>
+  <%= form.submit 'Submit' %>
+<%= end %>
+
+<%= @shouts.each do |shout| %>
+  <div>
+    <%= shout.body %>
+  </div>
+<%= end %>
